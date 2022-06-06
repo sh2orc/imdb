@@ -1,9 +1,14 @@
 import React from 'react';
-
+import requests from '../utils/requests'
+import {useRouter} from "next/router";
 function Navbar(props) {
+    const router = useRouter();
+
     return (
-        <div>
-            Navbar
+        <div className={"flex justify-center bg-gray-600 text-gray-200 space-x-5"}>
+            {Object.entries(requests).map(([key, {title, url}])=>(
+                <h2 onClick={()=> router.push(`?genre=${key}`)} className={"m-6 cursor-pointer hover:text-white"} key={key}>{title}</h2>
+            ))}
 
         </div>
     );
