@@ -1,9 +1,11 @@
 import React from 'react';
 
-function Results(props) {
+function Results({results}) {
     return (
         <div>
-            Results
+            {results.map(result=>(
+                <h1>{result.title}</h1>
+            ))}
         </div>
     );
 }
